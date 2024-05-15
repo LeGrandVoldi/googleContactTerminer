@@ -1,0 +1,694 @@
+body
+{
+    background-color: #f8fafd;
+    font-family: Roboto, Arial, sans-serif;
+    line-height: 1.25rem;
+    font-size: .875rem;
+    letter-spacing: .0142857143em;
+    color: #1f1f1f;
+    overflow: hidden;
+}
+table{
+    width: 95%;
+}
+
+/* Début Bloc Header */
+header
+{
+    height: 13vh;
+    display: grid;
+    grid-template-areas: "header_1 header_2";
+}
+#header_1
+{
+    grid-area:header_1 ;
+    width: 21vw;
+    display: grid;
+    grid-template-areas: "header_1__1 header_1__2 header_1__3";
+
+}
+#header_1__1
+{
+    width: 65px;
+}
+#header_1__2
+{
+    width: 65px;
+}
+#header_1__3
+{
+    width: 120px;
+    font-size: 20px;
+}
+#header_2
+{
+     grid-area:header_2 ;
+     width: 79vw;
+
+}
+/* Fin Bloc Header */
+
+/* Début Bloc Main */
+main
+{
+    height: 87vh;
+    display: grid;
+    grid-template-areas: "main_1 main_2";
+
+}
+#main_1
+{
+    width: 21vw;
+    padding-left: 20px;
+}
+#main_2
+{
+    width: 79vw;
+    padding-right: 20px;
+    padding-bottom: 20px;
+}
+#bloc_main
+{
+    width: 100%;
+    height: 100%;
+    border-radius: 20px;
+    opacity: 1;
+    transition-property: opacity;
+    transition-duration: 0.3s;
+    background-color: white;
+    display: grid;
+    grid-template-areas: "entete"
+                         "zero_contact";
+
+}
+
+#bloc_contacts
+{
+    width: 100%;
+    height: 100%;
+    border-radius: 20px;
+    opacity: 1;
+    transition-property: opacity;
+    transition-duration: 0.3s;
+    background-color: white;
+    display: grid;
+    grid-template-rows: 1fr 6fr;
+    grid-template-areas: "bloc_contacts__1"
+                         "bloc_contacts__2";
+
+}
+#bloc_contacts__1
+{
+    padding: 20px;
+    height: 80px;
+}
+.popup
+{
+    visibility: hidden;
+    opacity: 0;
+}
+
+.libelle_2{
+    margin: 5px;
+    overflow-x: auto; /* activer le défilement */
+    scrollbar-width: 2px; /* définir la largeur du scrollbar */
+}
+
+/* Personnalisation de la barre de défilement pour les navigateurs basés sur WebKit (Chrome, Safari) */
+.libelle_2::-webkit-scrollbar {
+    height: 2px; /* définir la largeur du scrollbar */
+}
+
+/* Personnalisation de la poignée du scrollbar pour les navigateurs basés sur WebKit */
+.libelle_2::-webkit-scrollbar-thumb {
+    background-color: #1100A5; /* couleur de fond de la poignée */
+}
+
+.ajouter_contacts{
+    overflow-y: auto; /* activer le défilement */
+    scrollbar-width: 2px; /* définir la largeur du scrollbar */
+}
+
+/* Personnalisation de la barre de défilement pour les navigateurs basés sur WebKit (Chrome, Safari) */
+.ajouter_contacts::-webkit-scrollbar {
+    width: 2px; /* définir la largeur du scrollbar */
+}
+
+/* Personnalisation de la poignée du scrollbar pour les navigateurs basés sur WebKit */
+.ajouter_contacts::-webkit-scrollbar-thumb {
+    background-color: #1100A5; /* couleur de fond de la poignée */
+}
+
+
+#tout_les_libelles{
+    height: 50vh;
+    overflow-y: auto; /* activer le défilement */
+    scrollbar-width: 2px; /* définir la largeur du scrollbar */
+}
+
+/* Personnalisation de la barre de défilement pour les navigateurs basés sur WebKit (Chrome, Safari) */
+#tout_les_libelles::-webkit-scrollbar {
+    width: 2px; /* définir la largeur du scrollbar */
+}
+
+/* Personnalisation de la poignée du scrollbar pour les navigateurs basés sur WebKit */
+#tout_les_libelles::-webkit-scrollbar-thumb {
+    background-color: #1100A5; /* couleur de fond de la poignée */
+}
+
+
+#selection_libelle{
+    overflow-y: auto; /* activer le défilement */
+    scrollbar-width: 2px; /* définir la largeur du scrollbar */
+}
+
+/* Personnalisation de la barre de défilement pour les navigateurs basés sur WebKit (Chrome, Safari) */
+#selection_libelle::-webkit-scrollbar {
+    width: 2px; /* définir la largeur du scrollbar */
+}
+
+/* Personnalisation de la poignée du scrollbar pour les navigateurs basés sur WebKit */
+#selection_libelle::-webkit-scrollbar-thumb {
+    background-color: #1100A5; /* couleur de fond de la poignée */
+}
+
+#bloc_contacts__2{
+    height: 60vh;
+    overflow-y: auto; /* activer le défilement */
+    scrollbar-width: 2px; /* définir la largeur du scrollbar */
+}
+
+/* Personnalisation de la barre de défilement pour les navigateurs basés sur WebKit (Chrome, Safari) */
+#bloc_contacts__2::-webkit-scrollbar {
+    height: 2px; /* définir la largeur du scrollbar */
+}
+
+/* Personnalisation de la poignée du scrollbar pour les navigateurs basés sur WebKit */
+#bloc_contacts__2::-webkit-scrollbar-thumb {
+    background-color: #1100A5; /* couleur de fond de la poignée */
+}
+
+
+.ajouter_contacts
+{
+   
+    
+    width: 100%;
+    overflow-y: auto; 
+    scrollbar-width: 2px;
+    border-radius: 20px;
+    background-color: white;
+    transition-property: opacity;
+    transition-duration: 0.3s;
+    display: grid;
+    grid-template-rows: 1fr auto auto;
+    grid-template-areas: "ajout1"
+                         "ajout2"
+                         "ajout3";
+
+}
+.ajout1
+{
+    grid-area: ajout1;
+    padding-left: 10px;
+    padding-top: 10px;
+}
+.ajout2
+{
+    grid-area: ajout2;
+    padding-left: 20px;
+    padding-bottom: 30px;
+}
+.ajout3
+{
+    padding-top: 10px;
+    padding-left: 20px;
+    grid-area: ajout3;
+    height: 50vh;
+    
+}
+.ajout3T
+{
+    display: grid;
+    grid-template-columns: 1fr 49fr;
+    grid-template-areas: "ajout3_1 ajout3_2";
+}
+.ajout3TEmail
+{
+    display: grid;
+    grid-template-columns: 1fr 48fr 20fr;
+    grid-template-areas: "ajout3_1 ajout3_2 ajout3_2";
+}
+.ajout3_1
+{
+    height: 40px;
+    padding-right: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.ajout3_3
+{
+   display: flex;
+   align-items: center;
+}
+/* Fin Bloc Main */
+
+/* Début Bloc Ajouter Contact */
+
+#ajouter_contact
+{
+    background-color: #17202A50;
+    width: 100vw;
+    height: 100vh;
+    position: relative;
+    bottom: -100vh;
+    margin-top: -100vh;
+    z-index: 1;
+   
+}
+#bloc_ajouter_contact
+{
+    background-color: white;
+    width: 50vw;
+    height: 70vh;
+    border-radius: 20px;
+    border-bottom: solid #5D6D7E 3px;
+    border-top: solid #5D6D7E 3px;
+    display: grid;
+    
+}
+
+/* Fin Bloc Ajouter Contact */
+
+/* Début Bloc Nav */
+#bloc__libelle{
+    z-index: 1;
+    background-color: #17202A30;
+    border-right: solid #3336F660 2px;
+    width: 100vw;height: 100vh;
+    position: relative;
+    bottom: -100vh;
+    margin-top: -100vh;
+    left: 0vw;
+    opacity: 0;
+    transition-property: opacity;
+    transition-duration: 0.2s;
+}
+#bloc__libelle__1{
+    z-index: 1;
+    background-color: #F7F9F9;
+    border-radius: 15px;
+    border-right: solid #3336F660 2px;
+    width: 350px;height: 350px;
+    display: grid;
+    grid-template-rows: 1fr 3fr 1fr;
+    grid-template-areas: "classLibele1"
+                         "classLibele2"
+                         "classLibele3";
+
+}
+#classLibele2{
+    margin: 10px;
+}
+#selection_libelle{
+    width: 100%;
+    height: 100%;
+}
+#Nav
+{
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+    z-index: 2;
+    background-color: white;
+    border-right: solid #3336F660 2px;
+    width: 70vw;height: 100vh;
+    position: relative;
+    bottom: -100vh;
+    margin-top: -100vh;
+    left: -70vw;
+    transition-property: left;
+    transition-duration: 0.3s;
+    display: grid;
+    grid-template-areas: "header"
+                         "main";
+                         
+}
+#header
+{
+    height: 10vh;
+    display: grid;
+    grid-template-areas: "header1__Nav header2__Nav";
+}
+#header2__Nav
+{
+    font-size: 20px;
+}
+#main
+{
+    height: 90vh;
+    padding-left: 20px;
+    
+}
+/* Fin Bloc Nav */
+#entete
+{
+   padding: 20px;
+}
+#zero_contact
+{
+    display: grid;
+    grid-template-areas: "les_images"
+                         "tt"
+                         "ttt";
+}
+#les_images {
+   width: 250px;
+   height: 250px;
+   background-repeat: no-repeat;
+   background-size: cover;
+   background-position: center;
+   opacity: 0;
+   transition-property: background-image,opacity;
+   transition-duration: 0.5s;
+}
+
+.center
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.center_left
+{
+    display: flex;
+    justify-content: left;
+    align-items: center;
+}
+.transition_width
+{
+    transition-property: width , font-size , opacity;
+    transition-duration: 0.3s;
+}
+#recherche
+{
+    width: 30vw;
+}
+#recherche::placeholder
+{
+    color: #ABB2B9;
+
+}
+#CreerC
+{
+    background-color: #c2e7ff;
+    font-size: 15px;
+    height: 60px;
+    border-radius: 17px;
+    width: 13vw;
+    
+}
+#CreerC__main
+{
+    background-color: #c2e7ff;
+    font-size: 15px;
+    height: 60px;
+    border-radius: 17px;
+    width: 47vw;
+}
+#Cont
+{
+    background-color: #c2e7ff;
+    height: 45px;
+    border-radius: 30px;
+    font-size: 15px;
+    width: 15vw;
+    color: #001d35;
+    font-weight: 700;
+    
+}
+#Cont__main
+{
+    background-color: #c2e7ff;
+    height: 45px;
+    border-radius: 30px;
+    font-size: 15px;
+    width: 60vw;
+    color: #001d35;
+    font-weight: 700;
+}
+#libelle
+{
+    color: #444746;
+
+    font-size: 17px;
+    font-weight: 700;
+    width: 15vw;
+    text-indent: 10px;
+}
+#libelle__main
+{
+    color: #444746;
+
+    font-size: 17px;
+    font-weight: 700;
+    width: 60vw;
+    text-indent: 10px;
+}
+table
+{
+    margin: 20px;
+}
+thead
+{
+    
+    height: 50px;
+    
+    
+}
+.border-top-left-radius
+{
+    background-color: #D6EAF8;
+    border-top-left-radius: 15px;
+    border-right: solid white 2px;
+}
+.border-top-right-radius
+{
+    background-color: #D6EAF8;
+    border-top-right-radius: 15px;
+    border-left: solid white 2px;
+}
+.border-right
+{
+    border-right: solid white 2px;
+}
+.trP
+{
+    border-bottom:  solid #E5E7E9 2px;
+    text-indent: 10px;
+    font-size: .875rem;
+    letter-spacing: 0;
+    line-height: 1.25rem;
+}
+.tr:hover
+{
+    background-color: #D6EAF850;
+}
+.tr
+{
+    transition-property: background-color;
+    transition-duration: 0.3s;
+}
+
+.lolo{
+    position: relative;
+}
+
+.popup
+{
+    background-color: white;
+    width: 200px;
+    height: 100px;
+    font-size: 15px;
+    position: absolute;
+    right: 0px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    transition-property: font-size , width , height;
+    display: grid;
+    grid-template-areas: "popup1"
+                         "popup2";
+}
+.popup1:hover,.popup2:hover
+{
+    background-color: #ECF0F1;
+}
+.popup1
+{
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    grid-template-areas: "pp1 pp2";
+}
+
+.popup2
+{
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    grid-template-areas: "pp3 pp4";
+}
+/* input[type="checkbox"]{
+
+    position: relative;
+    margin-right: 10px;
+    margin-left: 5px;
+    width: 30px;
+    height: 25px;
+    background: #c6c6c6;
+    -webkit-appearance: none;
+    outline: none;
+    border-radius: 20px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+    transition: 0.3s;
+}
+input:checked[type="checkbox"]{
+    background-color: #03a9f4;
+}
+input[type="checkbox"]::before{
+    content: '';
+    position: absolute;
+    width: 25px;
+    height: 25px;
+    border-radius: 20px;
+    top: 0;
+    left: 0;
+    background: #fff;
+    transition: 0.3s;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+input:checked[type="checkbox"]::before{
+    left: 30px;
+} */
+#contact_selectionner{
+    font-size: 0px;
+    transition-property: font-size;
+    transition-duration: 0.3s;
+}
+#nombre_selectionner{
+    font-size: 0;
+    opacity: 0;
+    transition-property: font-size,opacity;
+    transition-duration: 0.3s;
+}
+#suppressionMultiple{
+    position: absolute;
+    right: 50px;
+    font-size: 0;
+    opacity: 0;
+    transition-property: font-size,opacity;
+    transition-duration: 0.3s;
+}
+.libelle{
+    
+    padding: 10px;
+    margin-left: 20px;
+    display: grid;
+    grid-template-areas: "libelle_1 libelle_2 libelle_3 libelle_4";
+    transition-property:background-color;
+    transition-duration: 0.3s;
+}
+.libelle:hover{
+    background-color: #85C1E9;
+}
+.libelle_1{
+    background-color: white;
+    border: solid 1px  #5D6D7E50;
+    width: 30px;
+}
+
+.libelle_3{
+    border-top-right-radius: 100px;
+    border-bottom-right-radius: 100px;
+    opacity: 0;
+    visibility: hidden;
+}
+#tbody{
+    transition-property: opacity;
+    transition-duration: 0.3s;
+}
+.bb{
+    width: 50vw;
+}
+#rr{
+    width: 50vw;background-color: #D6EAF8;color: #0b57d0;font-weight: 400;border-radius: 100px;
+}
+@media (max-width:1280px) {
+      #main_1
+      {
+        width: 0;
+        visibility: hidden;
+      }
+      #main_2
+      {
+        width: 100vw;
+        padding-right: 40px;
+      }
+      #header_2
+        {
+           
+            width: 60vw;
+
+        }
+        #recherche
+        {
+            position: absolute;
+            right: 20px;
+        }
+}
+@media (max-width:980px) {
+
+    table{
+        width: 900px;
+    }
+}
+@media (max-width:640px) {
+
+    #header_2
+      {
+         
+          width: 40vw;
+
+      }
+      #bloc__libelle__1{
+        width: 250px;height: 250px;
+    
+    }
+}
+@media (max-width:600px) {
+    #recherche
+    {
+        width: 50vw;
+    }
+    .bb{
+        width: 70vw;
+    }
+    #rr{
+        width: 70vw;
+    }
+   
+}
+@media (max-width:470px) {
+    #header_1__3
+    {
+        visibility: hidden;
+    }
+    #header_1__2
+    {
+        visibility: hidden;
+    }
+   
+}
+@media (max-width:385px) {
+    #CreerC__main
+    {
+        width: 60vw;
+    }
+   
+}

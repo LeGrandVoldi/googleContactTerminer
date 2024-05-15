@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" type="image/x-icon" href="icon_googleContact.png" /> 
+    <!-- class Boostrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <!-- class Boostrap CSS -->  
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    
+    <link rel="stylesheet" href="css/intlTelInput.css">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Google Contacts</title>
+</head>
+<body >
+<!-- Debut Ajouter Contact-->  
+
+<div id="ajouter_contact" class="center" hidden>
+    <div id="bloc_ajouter_contact">
+         <div>
+            <i class="fa-solid fa-circle-xmark" style="font-size: 30px;"></i>
+         </div>
+         <div>
+           <!-- 
+                <img class="LrbNhc tUOMob" src="https://www.gstatic.com/identity/boq/profilepicturepicker/photo_silhouette_e02a5f5deb3ffc173119a01bc9575490.png" alt="Photo d'un contact." data-iml="10556.199999999953"> 
+                <i class="fa-solid fa-circle-plus" style="border: solid red 3px;padding: 10px;border-radius: 100px;"></i>
+           --> 
+         </div>
+         <div>
+
+         </div>
+    </div>
+
+</div>
+
+<!-- Fin Ajouter Contact -->  
+
+<div id="bloc__libelle" class="center" hidden>
+        <div id="bloc__libelle__1">
+               <div id="classLibele1" class="center">
+                   <p style="font-size: 18px;"><b>Sélectionner Libellé</b></p>
+               </div>
+               <div id="classLibele2">
+                 <select  name="" id="selection_libelle" class="form-control"  multiple></select>
+               </div>
+               <div id="classLibele3" class="center">
+                  <button class="btn btn-danger" onclick="fermerLesLibelle()">OK</button>
+               </div>
+        </div>
+</div>
+<div id="Nav">
+    <div id="header">
+        <div id="header1__Nav" class="center">
+            <img src="icons_entete/icon_googleContact.png" alt="icon_gogleContact" width="30px" height="40px">
+         </div>
+         <div id="header2__Nav" class="center_left">
+            Contacts
+         </div>
+    </div>
+    <div id="main">
+        <div id="CreerC__main" onclick="ouvrirAjoue()" class="center transition_width btn" style="position: relative;"><i class="fa-solid fa-plus element-left transition_width" style="font-size: 20px;" id="icon1_Nav"></i><span style="opacity: 0;">O</span>Créer un contact</div><br>
+        <div id="Cont__main" onclick="toutmescontact()" class="center transition_width btn" style="position: relative;"><span style="opacity: 0;"></span><i class="fa-solid fa-user element-left transition_width" style="font-size: 20px;" id="icon2_Nav"></i></i><span style="opacity: 0;">O</span>Contact<span id="nombreDeContacts__2" style="font-size: 15px;position: absolute;right: 10px;">0</span></div><br><br>
+        <div id="libelle__main" style="position: relative;" class="transition_width">Libellés <i class="element-right fa-solid fa-plus transition_width" style="font-size: 20px;" id="icon3_Nav" onclick="ajouterLibelle()"></i></i></div>
+        <div id="tout_les_libelles__main">
+            
+        </div>
+    </div>
+    
+</div> 
+<header >
+      <div id="header_1">
+         <div id="header_1__1" class="center" onclick="nav()">
+            <img src="icons_entete/hamburger-menu.svg" alt="burger" width="30" height="35">
+         </div>
+         <div id="header_1__2" class="center">
+            <img src="icons_entete/icon_googleContact.png" alt="icon_gogleContact" width="30px" height="40px">
+         </div>
+         <div id="header_1__3" class="center_left">
+            Contacts
+         </div>
+      </div>
+      <div id="header_2" class="center_left">
+        <input type="text" class="form-control"  placeholder="Recherche" id="recherche" onkeyup="recherche()">
+      </div>  
+</header>
+<main>
+    <style>
+        .element-right {
+            position: absolute;
+            top: 0;
+            right: 0;
+        }
+        .element-left {
+            position: absolute; 
+            left: 15px;
+        }
+    </style>
+    <section id="main_1" class="transition_width">
+        <div id="CreerC" onclick="ouvrirAjoue()" class="center transition_width btn" style="position: relative;"><i class="fa-solid fa-plus element-left transition_width" style="font-size: 20px;" id="icon1"></i><span style="opacity: 0;">O</span>Créer un contact</div><br>
+        <div id="Cont" onclick="toutmescontact()" class="center transition_width btn" style="position: relative;"><span style="opacity: 0;"></span><i class="fa-solid fa-user element-left transition_width" style="font-size: 20px;" id="icon2"></i></i><span style="opacity: 0;">O</span>Contact<span id="nombreDeContacts__1" style="font-size: 15px;position: absolute;right: 10px;">0</span></div><br><br>
+        <div id="libelle" style="position: relative;" class="transition_width">Libellés <i  class="element-right fa-solid fa-plus transition_width btn" style="font-size: 20px;" id="icon3" onclick="ajouterLibelle()"></i></div><br><br>
+        <div id="tout_les_libelles">
+            
+        </div>
+        
+        
+    </section>
+    <section id="main_2" class="transition_width">
+        
+          <div id="bloc_main" onclick="deNav()" >
+               <div id="entete">
+                    <h3>Contacts <span style="font-size: 18px;" id="nombre_contacts">(0)</span></h3>
+                </div>
+                <div id="zero_contact" class="center">
+                    <div id="les_images"></div>
+                    <div class="text-center fs-5" id="tt">Aucun contact pour l'instant</div>
+                    <div class="center btn btn-info" onclick="ouvrirAjoue()" id="ttt">Créer un contact</div>
+                </div> 
+                
+            </div>
+            <div id="bloc_contacts" onclick="deNav()" hidden>
+                <div id="bloc_contacts__1">
+                    <h3>Contacts <span style="font-size: 18px;" id="nombre_contacts_1">(0)</span></h3><br>
+                    <div id="contact_selectionner" >Contacts sélectionnés : <span class="btn btn-info" id="nombre_selectionner">0</span> <button id="suppressionMultiple" class="btn btn-danger" onclick="suppressionMultipleContacts()"><i class="fa-solid fa-trash"></i></button></div>
+                </div>
+                <div id="bloc_contacts__2">
+                    <table>
+                        <thead>
+                          <tr >
+                            <td class="trP " scope="col">Titre</td>
+                            <td class="trP " scope="col">E-mail</td>
+                            <td class="trP " scope="col">Numéro de téléphone</td>
+                            <td class="trP " scope="col">Fonction & Entreprise</td>
+                            <td class="trP " scope="col">Libellés</td>
+                            <td class="trP " scope="col"></td>
+                          </tr>
+                        </thead>
+                        <tbody id="tbody">
+                          
+                        
+                        </tbody>
+                      </table>
+                      
+                </div>
+
+                    
+            </div>
+            <div class="ajouter_contacts" onclick="deNav()" hidden>
+                <div class="ajout1">
+                    <i class="fa-solid fa-arrow-left btn" onclick="fermerAjoue()"></i>
+                </div>
+                <div class="ajout2">
+                    <div style="background-image: url(https://www.gstatic.com/identity/boq/profilepicturepicker/photo_silhouette_e02a5f5deb3ffc173119a01bc9575490.png);width: 150px;height: 150px;background-repeat: no-repeat;background-position: center;background-size: cover;border-radius: 500px;position: relative;" id="monImage">
+                        <i class="fa-solid fa-plus" id="iconPlus" style="border: solid white 3px;padding: 10px;border-radius: 100px;bottom: 0px;background-color: #6557E3;color: white;position: absolute;bottom: 10px;right: 0;" onclick="uploadImage()"></i>
+                        <i class="fa-solid fa-pen" id="iconModifier" style="border: solid white 3px;padding: 10px;border-radius: 100px;bottom: 0px;background-color: #6557E3;color: white;position: absolute;bottom: 10px;right: 0;" onclick="uploadImage()" hidden></i>
+                    </div>
+                    
+                </div>
+                <div class="ajout3">
+                    <div class="ajout3T" >
+                        <div class="ajout3_1"><div onclick="selectionnerLibelles()" class="center transition_width" style="position: relative;width: 100px;height: 30px;border-radius: 12px;border: solid #AAB7B8 1px;"><span style="opacity: 0;"></span><i class="fa-solid fa-plus element-left transition_width" style="font-size: 20px;color: #6557E3;" id="icon2_Nav"></i></i><span style="opacity: 0;">OO</span>Libellé</div></div>
+                        <div class="ajout3_2" id="mesLibelles"></div>
+                    </div><br> 
+                        <div class="ajout3T" >
+                            <div class="ajout3_1"><img src="icons_formulaire/person.PNG" alt="" width="20px" height="20px"></div>
+                            <div class="ajout3_2"><input type="text" class="form-control bb" id="prenom"  value="" placeholder="Prénom"></div>
+                        </div><br>   
+                        <div class="ajout3T">
+                            <div class="ajout3_1"><img src="icons_formulaire/person.PNG" alt="" width="20px" height="20px" style="opacity: 0;"></div>
+                            <div class="ajout3_2"><input type="text" class="form-control bb" id="nom"  placeholder="Nom"></div>
+                        </div><br>
+                        <div class="ajout3T"> 
+                            <div class="ajout3_1"><img src="icons_formulaire/entreprise.PNG" alt="" width="20px" height="20px"></div>
+                            <div class="ajout3_2"><input type="text" class="form-control bb" id="entreprise"  placeholder="Entreprise"></div>
+                        </div> <br>
+                        <div class="ajout3T">
+                            <div class="ajout3_1"><img src="icons_formulaire/person.PNG" alt="" width="20px" height="20px" style="opacity: 0;"></div>
+                            <div class="ajout3_2"><input type="text" class="form-control bb" id="fonction"  placeholder="Fonction"></div>
+                        </div><br>
+                        <div class="ajout3T">
+                            <div class="ajout3_1"><img src="icons_formulaire/email.PNG" alt="" width="20px" height="20px"></div>
+                            <div class="ajout3_2"><input type="email" class="form-control bb" id="email"  placeholder="Email"></div>
+                        </div> <br>
+                        <div class="ajout3T">
+                            <div class="ajout3_1"><img src="icons_formulaire/email.PNG" alt="" width="20px" height="20px" style="opacity: 0;"></div>
+                            <div class="ajout3_2 form-control btn" id="rr">Ajouter une adresse E-mail</div>
+                        </div> <br>
+                        <div class="ajout3T">
+                            <div class="ajout3_1"><img src="icons_formulaire/phone.PNG" alt="" width="20px" height="20px" style="opacity: 1;"></div>
+                            <div class="ajout3_2"><input type="tel" class="form-control bb" id="phone" value="+243"  id="phone" ></div>
+                        </div> <br>
+                        <div class="ajout3T">
+                            <div class="ajout3_1"><img src="icons_formulaire/email.PNG" alt="" width="20px" height="20px" style="opacity: 0;"></div>
+                            <button class="ajout3_2 btn btn-info" type="submit" style="width: 30vw;" id="btn_envois">Ajouter</button>
+                            <button class="ajout3_2 btn btn-primary" type="submit" style="width: 30vw;" id="btn_modifier" hidden>Modifier</button>
+                        </div> <br>
+                </div> 
+                    
+            </div>
+    </section>
+</main>   
+ 
+
+
+<!-- class Boostrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.js"></script>
+<script src="https://kit.fontawesome.com/225033a513.js" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+<script src="js/intlTelInput.js"></script>
+<script>
+    let phone = document.querySelector("#phone");
+    window.intlTelInput(phone,{})
+</script>
+<!-- class Boostrap JS -->
+<script src="js/index.js"></script>
+</body>
+</html>
